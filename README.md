@@ -1,4 +1,4 @@
-# frontend
+# Nyxeon frontend 
 
 ## Project setup
 ```

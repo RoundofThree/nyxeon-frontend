@@ -14,14 +14,15 @@
     "@voerro/vue-tagsinput": "^2.7.1",
     "autoprefixer": "^9",
     "axios": "^0.21.1",
+    "chart.js": "2",
     "core-js": "^3.6.5",
     "d3": "3",
     "moment": "^2.29.1",
     "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "vue": "^3.0.0",
-    "vue-router": "^4.0.0-0",
-    "vuetify": "^2.5.1"
+    "vue-chartjs": "https://github.com/davidrunger/vue-chartjs.git#vue-3",
+    "vue-router": "^4.0.0-0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

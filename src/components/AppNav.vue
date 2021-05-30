@@ -91,7 +91,6 @@ export default {
       axios.delete(API, axiosConfig).then(res => {
         // server must delete session cookie
         // redirect to / 
-        console.log(res.data)
         this.loggedIn = false 
         this.$router.push({name: "Home"})
       })

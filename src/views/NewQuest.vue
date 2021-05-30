@@ -12,7 +12,8 @@
       <label for="categories" class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Categories</label>
       <vue-tags-input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" element-id="categories" v-model="form.categories" :existing-tags="[
         { key: 1, name: 'Artificial Intelligence'},
-        { key: 2, name: 'Microservice'}
+        { key: 2, name: 'Microservice'},
+        { key: 3, name: 'CTF' }
       ]" id-field="key" text-field="name" @tag-added="onTagAdded" @tag-removed="onTagRemoved" :typeahead="true" />
     </div>
 
@@ -34,7 +35,7 @@ import axios from "axios"
 import VoerroTagsInput from '@voerro/vue-tagsinput'
 import getState from '../store/session'
 const API = "http://localhost:8080/quests/new"
-// const API = "http://localhost:4444"
+
 const axiosConfig = {
   headers: {
     "Content-Type": 'application/json;charset=UTF-8',
