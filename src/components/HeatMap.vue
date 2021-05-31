@@ -3,11 +3,11 @@
 <div id="heatmap"></div>
 
 <div class="container mb-2 flex mx-auto w-full items-center justify-center">
-<ul class="flex flex-box flex-col p-10 w-full">
-  <li class="border-gray-400 flex flex-row mt-2" v-for="item in show" v-bind:key="item._id">
-    <div class="select-none flex flex-1 items-center p-4 transition duration-500 ease-in-out transform hover:-translate-y-2 rounded-2xl border-2 p-6 hover:shadow-2xl">
-      <div class="flex-1 pl-1 mr-16">
-        <div class="font-medium">
+<ul class="flex flex-box flex-col p-2 w-full">
+  <li class="border-gray-400 flex flex-row flex-wrap mt-2" v-for="item in show" v-bind:key="item._id">
+    <div class="select-none flex flex-1 flex-wrap items-center p-2 transition duration-500 ease-in-out transform hover:-translate-y-2 rounded-2xl border-2 hover:shadow-2xl">
+      <div class="flex-1 flex-wrap pl-1 mr-16 mx-auto">
+        <div class="font-medium text-wrap break-words">
           {{ item.content }}
         </div>
       </div>

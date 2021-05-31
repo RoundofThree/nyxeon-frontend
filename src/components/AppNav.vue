@@ -1,63 +1,49 @@
 <template>
-  <nav
-    class="z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 bg-black"
-  >
-    <div
-      class="container px-4 mx-auto flex flex-wrap items-center justify-between"
-    >
-      <div
-        class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
-      >
-        <router-link
-          class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
-          to="/"
-          >Nyxeon</router-link
-        >
-      </div>
-      <div
-        class="lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none"
-        v-bind:class="{'hidden': !showMenu, 'block': showMenu}"
-      >
+
+<nav class="flex items-center justify-between flex-wrap bg-teal p-6 bg-black">
+    <div class="flex items-center flex-no-shrink text-white mr-6">
+      <span class="font-semibold text-xl tracking-tight">Nyxeon</span>
+    </div>
+    <div class="block sm:hidden">
+      <button @click="toggleNavbar" class="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light text-white hover:border-white">
+        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+      </button>
+    </div>
+    <div :class="showMenu ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
+      <div class="text-sm sm:flex-grow">
         <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
           <li class="flex items-center">
             <router-link
-              class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+              class="hover:text-gray-300 text-white px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
               to="/about"
               ><span class="inline-block ml-2">About</span></router-link
             >
           </li>
           <li v-if="loggedIn" class="flex items-center">
             <router-link
-              class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+              class="hover:text-gray-300 text-white px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
               to="/dashboard"
               ><span class="inline-block ml-2">Dashboard</span></router-link
             >
           </li>
           <li v-if="loggedIn" class="flex items-center">
             <router-link
-              class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+              class="hover:text-gray-300 text-white px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
               to="/quests/new"
               ><span class="inline-block ml-2">Register quest</span></router-link
             >
           </li>
           <li v-if="loggedIn" class="flex items-center">
             <button
-              class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+              class="hover:text-gray-300 text-white px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
               @click="logout"
               ><span class="inline-block ml-2">Logout</span></button
             >
           </li>
-          <li class="flex items-center">
-            <button
-              class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
-              type="button"
-              style="transition: all 0.15s ease 0s;"
-              @click="redirectToGithub"
-            >
-              View source code
-            </button>
-          </li>
         </ul>
+      </div>
+      <div>
+        <a href="https://github.com/RoundofThree/nyxeon" class="no-underline inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal hover:bg-gray-700 mt-4 sm:mt-0">View source code</a>
       </div>
     </div>
   </nav>
@@ -96,9 +82,6 @@ export default {
       })
       // refresh page 
       this.$forceUpdate()
-    },
-    redirectToGithub() {
-      window.location.href = "https://github.com/RoundofThree/nyxeon"
     }
   }
 }
