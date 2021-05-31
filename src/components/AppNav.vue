@@ -65,6 +65,7 @@
 <script>
 import axios from "axios"
 import getState from '../store/session'
+const setLoggedIn = getState().setLoggedIn
 
 //const API = "http://localhost:8080/oauth/logout"
 const API = "https://nameless-river-61827.herokuapp.com/oauth/logout"
@@ -75,13 +76,11 @@ const axiosConfig = {
   withCredentials: true
 }
 
-const state = getState().loggedIn 
-
 export default {
   data() {
     return {
       showMenu: false,
-      loggedIn: state 
+      loggedIn: getState().loggedIn, 
     }
   },
   methods: {
@@ -92,9 +91,11 @@ export default {
       axios.delete(API, axiosConfig).then(res => {
         // server must delete session cookie
         // redirect to / 
-        this.loggedIn = false 
+        setLoggedIn(false)
         this.$router.push({name: "Home"})
       })
+      // refresh page 
+      this.$forceUpdate()
     },
     redirectToGithub() {
       window.location.href = "https://github.com/RoundofThree/nyxeon"

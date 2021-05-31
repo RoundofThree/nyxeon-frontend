@@ -22,7 +22,8 @@
                   Record your daily achievements
                 </h1>
                 <p class="mt-4 text-lg text-gray-300">
-                  TBD: Explain better the purpose of this application. 
+                  Write down what you have learnt or committed, and track your consistency
+                  with simple and clean stats. 
                 </p>
               </div>
             </div>
@@ -47,9 +48,34 @@
 </template>
 
 <script>
+import getState from '../store/session'
+import axios from 'axios'
+const axiosConfig = {
+  headers: {
+    "Content-Type": "application/json"
+  },
+  withCredentials: true
+}
+const API = "https://nameless-river-61827.herokuapp.com/oauth/verify"
+const setLoggedIn = getState().setLoggedIn
+
 // call Go backend api to return a URL  
 export default {
   created() {
+  try {
+    axios.get(API, axiosConfig).then(res => {
+      if (res.status == 200) {
+        setLoggedIn(true)
+      }
+      else { 
+        setLoggedIn(false)
+      }
+    }).catch(err => {
+      setLoggedIn(false)
+    })
+  } catch (err) {
+    setLoggedIn(false)
+  }
   },
   methods: {
     githubLogin() {
