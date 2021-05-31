@@ -1,25 +1,44 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import getState from '../store/session'
+import axios from 'axios'
+const axiosConfig = {
+  headers: {
+    "Content-Type": "application/json"
+  },
+  withCredentials: true
+}
+const API = "https://nameless-river-61827.herokuapp.com/oauth/verify"
+const setLoggedIn = getState().setLoggedIn
 
-/*
 const requiresAuthentication = (to, from, next) => {
   // check session token in cookie with backend 
-  console.log("Checking session token...")
-  let success = document.cookie.match(/^(.*;)?\s*nyx_sess_id\s*=\s*[^;]+(.*)?$/)
-  console.log(document.cookie)
-  // if cookie not set
-  if (success) {
-    return next() 
+  try {
+    let res = await axios.get(API, axiosConfig)
+    if (res.status == 200) {
+      setLoggedIn(true)
+      if (from != "Home") return next() 
+      else return next("/dashboard")
+    }
+    else { 
+      setLoggedIn(false)
+      console.log(from)
+      if (from != "Home") return next("/")
+      else return next() 
+    }
+  } catch (err) {
+    setLoggedIn(false)
+    console.log(from)
+    if (from != "Home") return next("/")
+    else return next() 
   }
-  // failure 
-  next('/')
 }
-*/
 
 const routes = [
   {
     path: '/',
     name: 'Home',
+    beforeEnter: requiresAuthentication,
     component: Home
   },
   {
@@ -33,18 +52,20 @@ const routes = [
   {
     path: '/dashboard',
     name: 'Dashboard',
-    // beforeEnter: requiresAuthentication,
+    beforeEnter: requiresAuthentication,
     component: () => import(/* webpackChunkName: "dashboard" */ '../views/Dashboard.vue')
   },
   {
     path: '/quests/new',
     name: 'NewQuest',
+    beforeEnter: requiresAuthentication,
     component: () => import(/* webpackChunkName: "newquest" */ '../views/NewQuest.vue')
   }
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
+  mode: "hash",
   routes
 })
 

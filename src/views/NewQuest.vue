@@ -34,7 +34,7 @@
 import axios from "axios"
 import VoerroTagsInput from '@voerro/vue-tagsinput'
 import getState from '../store/session'
-const API = "http://localhost:8080/quests/new"
+const API = "https://nameless-river-61827.herokuapp.com/quests/new"
 
 const axiosConfig = {
   headers: {

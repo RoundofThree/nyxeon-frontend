@@ -66,7 +66,8 @@
 import axios from "axios"
 import getState from '../store/session'
 
-const API = "http://localhost:8080/oauth/logout"
+//const API = "http://localhost:8080/oauth/logout"
+const API = "https://nameless-river-61827.herokuapp.com/oauth/logout"
 const axiosConfig = {
   headers: {
     "Content-Type": "application/json"

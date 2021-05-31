@@ -17,7 +17,7 @@ import HeatMap from '../components/HeatMap.vue'
 import PieChart from '../components/PieChart'
 import getState from '../store/session'
 
-const API = "http://localhost:8080/quests/all"
+const API = "https://nameless-river-61827.herokuapp.com/quests/all"
 const axiosConfig = {
   headers: {
     "Content-Type": "application/json"
@@ -47,7 +47,7 @@ export default {
   async created() {
     const setLoggedIn = getState().setLoggedIn
     axios.get(API, axiosConfig).then(res => {
-      setLoggedIn(true)
+      // setLoggedIn(true)
       this.quests = res.data 
       // compute pie chart 
       let map = this.compute()
@@ -59,7 +59,7 @@ export default {
       this.ready = true
     }).catch(err => {
       console.log(err) 
-      setLoggedIn(false)
+      // setLoggedIn(false)
       this.$router.push({name: "Home"})
     })
   },
