@@ -1,5 +1,7 @@
 # Nyxeon frontend 
 
+This is the frontend for [Nyxeon](https://github.com/RoundofThree/nyxeon). 
+
 ## Project setup
 ```
 yarn install
@@ -22,5 +24,4 @@ yarn lint
 
 ### Enhancements 
 
-- [ ] Improve the interface. 
 - [ ] Write an about page. 
