@@ -12,8 +12,13 @@
       <label for="categories" class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Categories</label>
       <vue-tags-input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" element-id="categories" v-model="form.categories" :existing-tags="[
         { key: 1, name: 'Artificial Intelligence'},
-        { key: 2, name: 'Microservice'},
-        { key: 3, name: 'CTF' }
+        { key: 2, name: 'Backend'},
+        { key: 3, name: 'Exploit development' },
+        { key: 4, name: 'Frontend' },
+        { key: 5, name: 'Game development'},
+        { key: 6, name: 'CTF'},
+        { key: 7, name: 'Competitive programming'},
+        { key: 8, name: 'ACG'}
       ]" id-field="key" text-field="name" @tag-added="onTagAdded" @tag-removed="onTagRemoved" :typeahead="true" />
     </div>
 

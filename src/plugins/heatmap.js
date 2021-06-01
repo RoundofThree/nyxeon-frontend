@@ -135,6 +135,7 @@ export function calendarHeatmap() {
         .attr('width', width)
         .attr('class', 'calendar-heatmap')
         .attr('height', height)
+        .attr('preserveAspectRatio', "xMinYMin meet")
         .style('padding', '36px');
 
       dayRects = svg.selectAll('.day-cell')

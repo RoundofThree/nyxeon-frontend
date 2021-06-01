@@ -1,12 +1,13 @@
 <template>
-  <div class="container mx-auto px-4 py-4 text-center flex flex-col md:flex-row justify-center items-center">
+  <div class="w-screen p-4 flex flex-row flex-wrap items-start justify-evenly">
     <!--  Heatmap -->
     <template v-if="ready">
-      <div class="w-1/4 h/1-4 flex justify-center mx-auto">
-      <pie-chart style="width: 200; height: 200;" :chartData="chartData"></pie-chart>
+      <div class="w-full md:w-1/2 p-4">
+        <pie-chart class="w-full" :chartData="chartData"></pie-chart>
       </div>
-      <heat-map :entriesIn="quests"></heat-map>
-
+      <div class="w-full md:w-1/2 p-4">
+        <heat-map :entriesIn="quests"></heat-map>
+      </div>
     </template>
   </div>
 </template>

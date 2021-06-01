@@ -1,23 +1,28 @@
 <template>
-<div>
-<div id="heatmap"></div>
+<div class="w-full flex flex-col">
+  <div class="w-full" id="heatmap"></div>
 
-<div class="container mb-2 flex mx-auto w-full items-center justify-center">
-<ul class="flex flex-box flex-col p-2 w-full">
-  <li class="border-gray-400 flex flex-row flex-wrap mt-2" v-for="item in show" v-bind:key="item._id">
-    <div class="select-none flex flex-1 flex-wrap items-center p-2 transition duration-500 ease-in-out transform hover:-translate-y-2 rounded-2xl border-2 hover:shadow-2xl">
-      <div class="flex-1 flex-wrap pl-1 mr-16 mx-auto">
-        <div class="font-medium text-wrap break-words">
-          {{ item.content }}
+  <div class="mb-2 mx-auto w-full">
+    <ul class="flex flex-col p-2 w-full">
+      <li class="border-gray-300 w-full mt-2" v-for="item in show" v-bind:key="item._id">
+        <div class="w-full select-none flex flex-wrap items-center p-2 transition duration-500 ease-in-out transform hover:-translate-y-2 rounded-2xl border-2 hover:shadow-2xl">
+          
+          <div class="flex-1 pl-1 mr-16 mx-auto">
+            <div class="font-medium text-wrap break-words">
+              {{ item.content }}
+            </div>
+          </div>
+
+          <div class="flex flex-row flex-wrap w-1/3 justify-center items-center space-x-2 space-y-2">
+            <div v-for="category in item.categories" v-bind:key="category" class="text-white text-bold rounded-md bg-black p-2">
+              {{ category }}
+            </div>
+          </div> 
+
         </div>
-      </div>
-      <div v-for="category in item.categories" v-bind:key="category" class="text-wrap text-center flex flex-col text-white text-bold rounded-md bg-black justify-center items-center mr-10 p-2">
-        {{ category }}
-      </div>
-    </div>
-  </li>
-</ul>
-</div>
+      </li>
+    </ul>
+  </div>
 </div>
 </template>
 
@@ -113,6 +118,15 @@ rect.day-cell:hover {
 }
 .calendar-heatmap {
   box-sizing: initial;
+  float:right;
+  overflow:scroll;
+}
+.heatmap {
+  margin-left:auto;
+  margin-right: auto; 
+  text-align:right;
+  overflow:visible;
+  white-space: nowrap;
 }
 
 </style>
