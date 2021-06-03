@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["about"],{f820:function(e,t,n){"use strict";n.r(t);var c=n("7a23"),o={class:"container flex flex-col justify-center items-center mt-10"},i=Object(c["h"])("div",null,[Object(c["g"])("Made with love by "),Object(c["h"])("a",{href:"https://github.com/RoundofThree"},"RoundofThree")],-1),r=Object(c["h"])("div",null,"TODO: make it prettier",-1);function u(e,t){return Object(c["q"])(),Object(c["d"])("div",o,[i,r])}const a={};a.render=u;t["default"]=a}}]);
+//# sourceMappingURL=about.5b8cb17f.js.map
