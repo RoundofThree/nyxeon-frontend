@@ -17,7 +17,7 @@
     "chart.js": "2",
     "core-js": "^3.6.5",
     "d3": "3",
-    "moment": "^2.29.2",
+    "moment": "^2.29.4",
     "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "vue": "^3.0.0",
